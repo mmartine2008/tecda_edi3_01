@@ -1,0 +1,58 @@
+version: '3'
+services:
+  web:
+    image: mydocker/apache:2.0.0.formulario
+    ports:
+      - 80:80
+    volumes:
+     - ../../proyecto00/app:/var/www/html
+    depends_on:
+      - mysqldb
+    environment:
+      - TZ=America/Argentina/Buenos_Aires
+      - SERVICE_PORTS=80
+      - LANG=es_AR.utf8
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: any
+        max_attempts: 3
+        window: 120s
+      resources:
+        limits:
+          memory: 128m 
+  pgdb:
+    image: postgres:14.8
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ../sql:/tmp
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres      
+    ports:
+      - 5432:5432  
+  smtp-capture:
+    image: maildev/maildev:latest
+    ports:
+      # - "1025" # SMTP
+      - "8091:1080" # Web/API
+    volumes:
+     - ../tmp:/var/maildev
+    environment:
+      ## Options: https://github.com/maildev/maildev/blob/master/README.md#usage
+      # MAILDEV_SMTP_PORT: 1025
+      # MAILDEV_WEB_PORT: 1080
+      MAILDEV_MAIL_DIRECTORY: /var/maildev
+      # MAILDEV_INCOMING_USER: ''
+      # MAILDEV_INCOMING_PASS: ''
+      # MAILDEV_OUTGOING_HOST: 'mail.exa.unicen.edu.ar'
+      # MAILDEV_OUTGOING_PORT: 25
+      # MAILDEV_OUTGOING_USER: ''
+      # MAILDEV_OUTGOING_PASS: ''
+      # MAILDEV_WEB_USER: "${MAILDEV_WEB_USER?Missing env variable}"
+      # MAILDEV_WEB_PASS: "${MAILDEV_WEB_PASS?Missing env variable}"
+#volumes:
+  # maildev-maildir:
+volumes:
+  pgdata:
