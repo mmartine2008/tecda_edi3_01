@@ -1,35 +1,5 @@
 <?php   
-    $config = [];
-    $config['database']['host'] = 'pgdb';
-    $config['database']['userName'] = 'postgres';
-    $config['database']['password'] = 'postgres';
-    $config['database']['databasename'] = 'tareas';
-    $config['database']['port'] = '5432';
-
-    function create_connection($baseConfig) {
-
-        $config = $baseConfig;
-
-        // Atencion: Modificar esto segun la instalacion:
-        $host = $config['host'];
-        $userName = $config['userName'];
-        $password = $config['password'];
-        $database = $config['databasename'];
-        $port = $config['port'];
-
-
-        try {
-            $dsn = "pgsql:host=$host;port=$port;dbname=$database;";
-        
-            return new PDO($dsn, $userName, $password, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-
-        } catch (Exception $e) {
-            debug_print_backtrace();
-            var_dump($e);
-            die(__FILE__.":".__LINE__);
-        }
-
-    } 
+    require_once('libs/db.php');
     
     function tareas_recuperar($db) {
 		$sql = 'SELECT tarea.*, estado.descripcion as estado 
@@ -44,7 +14,7 @@
 		return $tareas;
 	}
 
-    $db = create_connection($config['database']);
+    $db = create_connection();
     $tareas = tareas_recuperar($db);
 ?>
 <head>
