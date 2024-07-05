@@ -1,8 +1,6 @@
 <?php   
     require_once('libs/db.php');
     
-  
-
     $db = create_connection($config['database']);
     $tareas = tareas_recuperar($db);
     $estados = estados_recuperar($db);
