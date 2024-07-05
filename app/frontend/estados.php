@@ -1,17 +1,6 @@
 <?php   
     require_once('libs/db.php');
     
-    function estados_recuperar($db) {
-		$sql = 'SELECT *
-                    FROM estado
-                    ORDER BY estado.id
-                    ';
-        $stmt = $db->query($sql);
-        
-        $estados = $stmt->fetchAll(PDO::FETCH_OBJ);
-
-		return $estados;
-	}
 
     $db = create_connection($config['database']);
     $estados = estados_recuperar($db);

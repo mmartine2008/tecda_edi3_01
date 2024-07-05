@@ -1,26 +1,6 @@
 <?php   
     require_once('libs/db.php');
     
-        function estado_recuperar($db, $id) {
-		$sql = 'SELECT *
-                    FROM estado
-                    WHERE id = ?';
-
-        $stmt = $db->prepare($sql);
-        $stmt->execute([$id]);
-        $tarea = $stmt->fetch(PDO::FETCH_OBJ);
-		return $tarea;     
-	}
-
-    function estados_recuperar($db) {
-		$sql = 'SELECT *
-                    FROM estado';
-        $stmt = $db->query($sql);
-        
-        $tareas = $stmt->fetchAll(PDO::FETCH_OBJ);
-
-		return $tareas;
-	}    
 
     $db = create_connection($config['database']);
     $estados = estados_recuperar($db);

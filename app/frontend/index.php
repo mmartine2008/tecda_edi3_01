@@ -1,18 +1,5 @@
 <?php   
     require_once('libs/db.php');
-    
-    function tareas_recuperar($db) {
-		$sql = 'SELECT tarea.*, estado.descripcion as estado 
-                    FROM tarea
-                    INNER JOIN estado ON (tarea.estado_id = estado.id)
-                    ORDER BY tarea.id
-                    ';
-        $stmt = $db->query($sql);
-        
-        $tareas = $stmt->fetchAll(PDO::FETCH_OBJ);
-
-		return $tareas;
-	}
 
     $db = create_connection();
     $tareas = tareas_recuperar($db);
