@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2024-07-05 22:28:03
+/* Smarty version 3.1.39, created on 2024-07-12 21:55:21
   from '/var/www/html/frontend/templates/tareas.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_66887373b12698_19582826',
+  'unifunc' => 'content_6691a64926c289_53033047',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b1fb12139500289e659e0831c9098c4e02cf983c' => 
     array (
       0 => '/var/www/html/frontend/templates/tareas.tpl',
-      1 => 1720218459,
+      1 => 1720821317,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_66887373b12698_19582826 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6691a64926c289_53033047 (Smarty_Internal_Template $_smarty_tpl) {
 ?>        <div class="card">
             <div class="card-header">
                 Lista de Tareas
@@ -69,7 +69,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </div>
         <div class="card">
             <div class="card-body">
-                <a href="tareaNueva.php" type="button" class="btn btn-success btn-block"><i class="fas fa-add"></i>Agregar</a>
+                <a href="tarea/nueva" type="button" class="btn btn-success btn-block"><i class="fas fa-add"></i>Agregar</a>
             </div>
         </div><?php }
 }

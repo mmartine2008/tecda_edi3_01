@@ -34,6 +34,6 @@
         </div>
         <div class="card">
             <div class="card-body">
-                <a href="tareaNueva.php" type="button" class="btn btn-success btn-block"><i class="fas fa-add"></i>Agregar</a>
+                <a href="tarea/nueva" type="button" class="btn btn-success btn-block"><i class="fas fa-add"></i>Agregar</a>
             </div>
         </div>
