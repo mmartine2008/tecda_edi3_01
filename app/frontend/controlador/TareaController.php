@@ -1,5 +1,6 @@
 <?php
     require_once('modelos/TareaModel.php');
+    require_once('vistas/TareaView.php');
     require_once('modelos/EstadoModel.php');
     require_once('libs/smarty/Smarty.class.php');
 
@@ -9,21 +10,17 @@
         private $estadoModel;
         
         function __construct() {
-            $tareaModel = new TareaModel();
-            $estadoModel = new EstadoModel();
-            $smarty = new Smarty();
+            $this->tareaModel = new TareaModel();
+            $this->estadoModel = new EstadoModel();
+            $this->view = new TareaView();
+            $this->smarty = new Smarty();
         }
 
         function nueva() {
             $tareas = $this->tareaModel->todas();        
             $estados = $this->estadoModel->todos();
-    
-            $this->smarty->assign('titulo', 'Gestion de tareas');
-            $this->smarty->assign('tareas', $tareas);
-            $this->smarty->assign('estados', $estados);
-        
-            $this->smarty->display('templates/nuevaTarea.tpl');    
-       
+            
+            $this->view->nueva($tareas, $estados);
         }
 
         function grabar() {
@@ -40,20 +37,14 @@
             header("Location: index.php");            
         }
     
-        function editar () {
+        function editar ($id) {
 
             $tareas = $this->tareaModel->todas();        
             $estados = $this->estadoModel->todos();
-            $id = $_REQUEST['id'];
             $tareaEditar = $this->tareaModel->una($id);
         
-            $this->smarty->assign('titulo', 'Gestion de tareas');
-            $this->smarty->assign('tareas', $tareas);
-            $this->smarty->assign('id', $id);
-            $this->smarty->assign('tareaEditar', $tareaEditar);
-            $this->smarty->assign('estados', $estados);
-        
-            $this->smarty->display('templates/editarTarea.tpl');
+            $this->view->editar($tareas, $id, 
+                        $tareaEditar, $estados);
         }
 
         function eliminar() {

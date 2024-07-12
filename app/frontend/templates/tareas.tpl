@@ -20,7 +20,7 @@
                     <td>
                             <div class="row">
                                 <div class="col-3">
-                                    <a href="tareaEditar.php?id={$tarea->id}" type="button" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Editar</a>
+                                    <a href="editar/{$tarea->id}" type="button" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Editar</a>
                                 </div>
                                 <div class="col-3">
                                     <a href="tareaEliminar.php?id={$tarea->id}" type="button" class="btn btn-danger btn-sm" onclick="confirmarEliminacion()"><i class="fas fa-trash-alt"></i>Eliminar</a>

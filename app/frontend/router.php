@@ -1,6 +1,8 @@
 <?php
     require_once('index.php');
-    require_once('tareaNueva.php');
+    require_once('controlador/TareaController.php');
+
+    $tarea = new TareaController();
 
     $action = $_REQUEST['action'];
     $parametros = explode('/', $action);
@@ -8,8 +10,8 @@
     switch ($parametros[0]) {
         case "tarea": {
             switch ($parametros[1]) {
-                case "nueva": tarea_nueva(); break;
-                case "editar": ; break; 
+                case "nueva": $tarea->nueva(); break;
+                case "editar": $tarea->editar($parametros[2]); break; 
                 case "grabar": ; break; 
                  
             }

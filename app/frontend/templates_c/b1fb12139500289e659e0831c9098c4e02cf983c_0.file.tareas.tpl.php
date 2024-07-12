@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2024-07-12 21:55:21
+/* Smarty version 3.1.39, created on 2024-07-12 22:43:02
   from '/var/www/html/frontend/templates/tareas.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6691a64926c289_53033047',
+  'unifunc' => 'content_6691b176665103_37723351',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b1fb12139500289e659e0831c9098c4e02cf983c' => 
     array (
       0 => '/var/www/html/frontend/templates/tareas.tpl',
-      1 => 1720821317,
+      1 => 1720824018,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6691a64926c289_53033047 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6691b176665103_37723351 (Smarty_Internal_Template $_smarty_tpl) {
 ?>        <div class="card">
             <div class="card-header">
                 Lista de Tareas
@@ -51,7 +51,7 @@ $_smarty_tpl->tpl_vars['tarea']->do_else = false;
                     <td>
                             <div class="row">
                                 <div class="col-3">
-                                    <a href="tareaEditar.php?id=<?php echo $_smarty_tpl->tpl_vars['tarea']->value->id;?>
+                                    <a href="editar/<?php echo $_smarty_tpl->tpl_vars['tarea']->value->id;?>
 " type="button" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Editar</a>
                                 </div>
                                 <div class="col-3">
