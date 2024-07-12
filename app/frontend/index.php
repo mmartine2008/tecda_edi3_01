@@ -1,11 +1,12 @@
 <?php   
-    require_once('libs/db.php');
     require_once('libs/smarty/Smarty.class.php');
+    require_once('modelos/TareaModel.php');
 
     function index() {
- 
-        $db = create_connection();
-        $tareas = tareas_recuperar($db);
+
+        $tareaModel = new TareaModel();
+
+        $tareas = $tareaModel->todas();
 
         $smarty = new Smarty();
 
